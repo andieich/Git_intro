@@ -1,0 +1,431 @@
+---
+title: Introduction to Git and GitHub
+author: Andreas Eich
+from: markdown+emoji
+format:
+  revealjs:
+    transition: none # fade
+    background-transition: none # fade
+    slide-number: c/t
+    show-slide-number: all
+    incremental: false
+    preview-links: true
+    code-copy: true
+    code-link: false
+    code-fold: false
+    numbers: true
+    progress: false
+title-slide-attributes:
+    data-background-color: "#1c5253"
+editor_options: 
+  chunk_output_type: console
+---
+
+## Problem
+
+Analyses develop over time making it difficult to keep track of current version and to understand what was changed for which reasons
+
+![](images/Screenshot%202023-09-03%20at%2012.53.56-01.png){height="25%"}
+
+------------------------------------------------------------------------
+
+## Solution
+
+**Version control**
+
+One version of the document including track changes with a description what changed
+
+------------------------------------------------------------------------
+
+![](https://git-scm.com/images/logo@2x.png){fig-align="left" height="10%"}
+
+-   Open Source software for version control
+
+-   For text-based files, as R Scripts, LaTeX files, etc
+
+-   *Distributed* version control system: each user interacts with standalone copy of repository
+
+-   works *offline*, can be used to keep track of your own work
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Repository**
+
+Folder containing all project files, i.e. the analysis and other files of a paper. Usually, the folder of an RStudio project.
+:::
+
+------------------------------------------------------------------------
+
+![](https://git-scm.com/images/logo@2x.png){fig-align="left" height="10%"}
+
+-   *Repositories* can be hosted (kept online)
+
+-   Different hosting services:
+
+    ![](https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png){height="50px"}
+
+    ![](https://cdn.cookielaw.org/logos/aa14a5c8-79e3-442a-8177-464ad850b19d/e46c1d0d-1f66-481f-bc06-5427671431da/253e6fee-c4c0-4b60-bc35-79cdae5dda32/gitlab-logo-100.png){height="50px"}
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/3/32/Atlassian_Bitbucket_Logo.png){height="50px"}
+
+------------------------------------------------------------------------
+
+## Advantages of version control
+
+-   See the changes for each file with description
+
+-   Go back to specific versions of files
+
+-   See in detail what changed (inserted lines, deleted lines, etc)
+
+-   For collaborative repositories: See who did when what
+
+------------------------------------------------------------------------
+
+## Version Control on GitHub
+
+![](images/Screenshot%202023-09-03%20at%2014.34.07.png)
+
+------------------------------------------------------------------------
+
+## Version Control in RStudio
+
+![](images/Screenshot%202023-09-03%20at%2014.34.30.png)
+
+------------------------------------------------------------------------
+
+## Workflow
+
+1.  Set up a local version control repository
+2.  Create scripts and include to git
+3.  Edit scripts
+4.  Create a record of your changes in the version history incl. description
+5.  Synchronise your changes with a remote repository
+
+**Repeat steps (2) 3 - 5**
+
+------------------------------------------------------------------------
+
+## Dictionary
+
+**Repository:** Project folder
+
+**Stage files:** Staged files will be monitored for changes
+
+**Commit:** After file was edited, save snapshot and include short description (*commit message*) what changed
+
+**Push:** After a couple of commits, synchronize the changes with the version on GitHub (upload)\
+**Pull:** When you get a link to a repository, you can pull (=download) it
+
+------------------------------------------------------------------------
+
+## Workflow
+
+1.  Set up a local version control repository
+2.  Create scripts and include to git **Stage files**
+3.  Edit scripts
+4.  Create a record of your changes in the version history incl. description **Commit**
+5.  Synchronise your changes with a remote repository **Push**
+
+**Repeat steps (2) 3 - 5**
+
+------------------------------------------------------------------------
+
+## Notes
+
+-   Git does not work well with large files (\> 10 MB) such as data in Excel files
+
+-   Whenever an Excel file is opened and saved, a change will be noted and an extra version of the data is saved
+
+-   For big data: Link to cloud services
+
+-   For small data: Clean data and don't change again (also important for reproducibility of code)
+
+------------------------------------------------------------------------
+
+## Collaborative Workflow
+
+::: columns
+::: {.column width="60%"}
+**Branch**
+
+::: {style="font-size: 80%;"}
+-   Copies all files within the same repository
+
+-   Continue analysis, try out new methods, etc.
+
+-   When you are finished, merge changes with main branch
+:::
+:::
+
+::: {.column width="40%"}
+![](images/git-branches-merge.png)
+:::
+:::
+
+::: {.callout-caution appearance="simple" icon="false"}
+**Attention**
+
+Sometimes, changes cannot be merged =\> **Merge Error**
+:::
+
+------------------------------------------------------------------------
+
+## Collaborative Workflow
+
+### Alternative
+
+All users connect to same repository and coordinate their changes
+
+![](images/git-branches-ind.png)
+
+------------------------------------------------------------------------
+
+## Collaborative Workflow
+
+::: columns
+::: {.column width="60%"}
+### Forking
+
+-   Copy files from one repository to a *new* repository.
+
+-   Used to experiment with the work of others for your own projects rather than work on one common project
+:::
+
+::: {.column width="40%"}
+![](images/1%20fn8qxN2ehkBhnxxX1df88w.png)
+:::
+:::
+
+### 
+
+------------------------------------------------------------------------
+
+## Publish code and data
+
+-   Reproducibility Crisis: Same data, different results
+
+-   [P-hacking](https://projects.fivethirtyeight.com/p-hacking/): Many tests, only select the "significant" results
+
+**Many journals require to publish all raw data and scripts**
+
+-   Document code: Literate programming, use [Quarto](https://quarto.org/) or RMarkdown
+
+------------------------------------------------------------------------
+
+## Publish Scripts & Packages
+
+Scripts with some functions (remote `source()`):
+
+```{r}
+#| eval: false
+#| echo: true
+devtools::source_url("URL/to/R/file/on/GitHub")
+```
+
+<br>
+
+Publish Packages (easier than on CRAN)
+
+```{r}
+#| eval: false
+#| echo: true
+
+devtools::install_github("andieich/Logger")
+```
+
+------------------------------------------------------------------------
+
+## Host Websites
+
+GitHub can be used to host your personal [websites](https://andieich.github.io/Logger_website/)
+
+You can use [Quarto](https://quarto.org/docs/websites/) (updated RMarkdown) to generate the needed files
+
+------------------------------------------------------------------------
+
+## Set up Git on Windows
+
+::: columns
+::: {.column width="50%"}
+-   Install from [here](https://git-scm.com/download/win)
+
+-   Select Git Credential Manager
+:::
+
+::: {.column width="50%"}
+![](images/Screenshot%202023-09-03%20at%2020.04.56.png)
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Set up Git on Macs
+
+::: {style="font-size: 70%;"}
+1.  Open terminal
+
+2.  Install xcode:
+
+    `sudo xcode-select --install`
+
+3.  Install homebrew:
+
+    `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)`
+
+4.  Link to PATH:
+
+    `echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile`
+
+5.  Install git:
+
+    `brew install git`
+
+6.  Install [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md):
+
+    `brew tap microsoft/git`
+
+    `brew install –cask git-credential-manager-core`
+:::
+
+------------------------------------------------------------------------
+
+## Set up Git
+
+Go to Terminal (Mac) or Comad Line (Windows) and type
+
+```{bash}
+#| eval: false
+#| echo: true
+git config --global user.name "Your Name"
+git config --global user.email your.email@domain.com
+```
+
+------------------------------------------------------------------------
+
+## Workflow
+
+1.  Set up a local version control repository
+2.  Create scripts and include to git **Stage files**
+3.  Edit scripts
+4.  Create a record of your changes in the version history incl. description **Commit**
+5.  Synchronise your changes with a remote repository **Push**
+
+**Repeat steps (2) 3 - 5**
+
+------------------------------------------------------------------------
+
+### 1. Set up a local version control repository
+
+On [GitHub](https://github.com/)
+
+1.  \+ \> New Repository
+2.  Chose name and visibility
+3.  Copy HTTPS link
+
+------------------------------------------------------------------------
+
+### 1. Set up a local version control repository
+
+Switch to RStudio
+
+1.  File \> New Project
+
+2.  Select Version Control <br> ![](images/Screenshot%202023-09-03%20at%2015.03.27.png){height="400px"}
+
+------------------------------------------------------------------------
+
+### 1. Set up a local version control repository
+
+Select Git
+
+Select git <br> ![](images/Screenshot%202023-09-03%20at%2015.12.00.png){height="400px"}
+
+------------------------------------------------------------------------
+
+### 1. Set up a local version control repository
+
+Paste HTTPS link from GitHub and select where repository should be downloaded <br> ![](images/Screenshot%202023-09-03%20at%2015.12.33.png){height="400px"}
+
+------------------------------------------------------------------------
+
+### 1. Set up a local version control repository
+
+Besides usual project file, a `.gitignore` file is created.
+
+This is used to define which files are monitored or ignored
+
+![](images/Screenshot%202023-09-03%20at%2015.21.56.png)
+
+------------------------------------------------------------------------
+
+### 2. Create scripts and include to git
+
+All files in repository are visible in the Git panel
+
+Select *staged* to include files
+
+![](images/Screenshot%202023-09-03%20at%2015.25.18%2019.32.38.png)
+
+------------------------------------------------------------------------
+
+### 3. Edit scripts
+
+[ **M** ]{style="color:white; background-color: #5687D9;"}: Changes detected
+
+![](images/Screenshot%202023-09-03%20at%2018.55.50.png)
+
+------------------------------------------------------------------------
+
+### 4. **Commit**
+
+Click on Commit in Git panel
+
+Edit commit message
+
+![](images/Screenshot%202023-09-03%20at%2019.35.06.png)
+
+------------------------------------------------------------------------
+
+### 5. Push
+
+After a couple of commits, click on Push to upload changes
+
+------------------------------------------------------------------------
+
+### Include README.md
+
+::: {style="font-size: 80%;"}
+-   In the repository folder, a markdown file can be created that will be shown on the GitHub page of the repository.
+
+-   This file contains e.g. a short description of your paper, links to the published versions, or, if you share code, a description what it is used for and how.
+
+-   It can be created and edited in RStudio
+
+-   You can also use Quarto or RMarkdown files for this
+
+-   For Quarto:
+
+```{YAML}
+#| eval: false
+#| echo: true
+---
+title: "My Project"
+format: 
+  gfm:
+    output-file: "README.md"
+---
+```
+:::
+------------------------------------------------------------------------
+
+## Sources
+
+::: columns
+::: {.column width="50%"}
+**British Ecological Society** [Guides to Better Science](https://www.britishecologicalsociety.org/publications/guides-to/)
+:::
+
+::: {.column width="50%"}
+![](images/Screenshot%202023-09-03%20at%2016.46.39-02.png){height="600px"}
+:::
+:::
