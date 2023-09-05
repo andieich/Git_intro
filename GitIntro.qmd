@@ -17,8 +17,6 @@ format:
     progress: false
 title-slide-attributes:
     data-background-color: "#1c5253"
-editor_options: 
-  chunk_output_type: console
 ---
 
 ## Problem
@@ -29,11 +27,23 @@ Analyses develop over time making it difficult to keep track of current version 
 
 ------------------------------------------------------------------------
 
-## Solution
-
-**Version control**
+## Solution: Version Control
 
 One version of the document including track changes with a description what changed
+
+------------------------------------------------------------------------
+
+## Advantages of Version Control
+
+-   See the changes for each file with description
+
+-   Go back to specific versions of files
+
+-   Experiment with code without breaking everything that worked before
+
+-   See in detail what changed (inserted lines, deleted lines, etc)
+
+-   For collaborative work: See who did when what
 
 ------------------------------------------------------------------------
 
@@ -66,18 +76,6 @@ Folder containing all project files, i.e. the analysis and other files of a pape
     ![](https://cdn.cookielaw.org/logos/aa14a5c8-79e3-442a-8177-464ad850b19d/e46c1d0d-1f66-481f-bc06-5427671431da/253e6fee-c4c0-4b60-bc35-79cdae5dda32/gitlab-logo-100.png){height="50px"}
 
     ![](https://upload.wikimedia.org/wikipedia/commons/3/32/Atlassian_Bitbucket_Logo.png){height="50px"}
-
-------------------------------------------------------------------------
-
-## Advantages of version control
-
--   See the changes for each file with description
-
--   Go back to specific versions of files
-
--   See in detail what changed (inserted lines, deleted lines, etc)
-
--   For collaborative repositories: See who did when what
 
 ------------------------------------------------------------------------
 
@@ -127,18 +125,6 @@ Folder containing all project files, i.e. the analysis and other files of a pape
 5.  Synchronise your changes with a remote repository **Push**
 
 **Repeat steps (2) 3 - 5**
-
-------------------------------------------------------------------------
-
-## Notes
-
--   Git does not work well with large files (\> 10 MB) such as data in Excel files
-
--   Whenever an Excel file is opened and saved, a change will be noted and an extra version of the data is saved
-
--   For big data: Link to cloud services
-
--   For small data: Clean data and don't change again (also important for reproducibility of code)
 
 ------------------------------------------------------------------------
 
@@ -242,6 +228,21 @@ GitHub can be used to host your personal [websites](https://andieich.github.io/L
 You can use [Quarto](https://quarto.org/docs/websites/) (updated RMarkdown) to generate the needed files
 
 ------------------------------------------------------------------------
+
+## Notes
+
+-   Git does not work well with large files (\> 10 MB) such as data in Excel files
+
+-   Whenever an Excel file is opened and saved, a change will be noted and an extra version of the data is saved
+
+-   For big data: Link to cloud services
+
+-   For small data: Clean data and don't change again (also important for reproducibility of code)
+
+
+------------------------------------------------------------------------
+
+
 
 ## Set up Git on Windows
 
@@ -416,6 +417,7 @@ format:
 ---
 ```
 :::
+
 ------------------------------------------------------------------------
 
 ## Sources
