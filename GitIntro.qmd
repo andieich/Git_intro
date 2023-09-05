@@ -15,6 +15,7 @@ format:
     code-fold: false
     numbers: true
     progress: false
+    theme: simple
 title-slide-attributes:
     data-background-color: "#1c5253"
 ---
