@@ -240,10 +240,7 @@ You can use [Quarto](https://quarto.org/docs/websites/) (updated RMarkdown) to g
 
 -   For small data: Clean data and don't change again (also important for reproducibility of code)
 
-
 ------------------------------------------------------------------------
-
-
 
 ## Set up Git on Windows
 
