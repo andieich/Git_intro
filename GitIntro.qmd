@@ -189,7 +189,7 @@ All users connect to same repository and coordinate their changes
 
 ## Publish code and data
 
--   Reproducibility Crisis: Same data, different results
+-   "Reproducibility Crisis": Same data, different results
 
 -   [P-hacking](https://projects.fivethirtyeight.com/p-hacking/): Many tests, only select the "significant" results
 
