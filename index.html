@@ -578,45 +578,30 @@ Andreas Eich
 <li><p>For small data: Clean data and don’t change again (also important for reproducibility of code)</p></li>
 </ul>
 </section>
-<section id="set-up-git-on-windows" class="slide level2">
-<h2>Set up Git on Windows</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>Install from <a href="https://git-scm.com/download/win">here</a></p></li>
-<li><p>Select Git Credential Manager</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/Screenshot%202023-09-03%20at%2020.04.56.png"></p>
-</div>
+<section id="set-up-github" class="slide level2">
+<h2>Set up GitHub</h2>
+<p>You can set-up RStudio to directly connect to GitHub. In the past, your GitHub username and password was sufficient, but now you need to log in using a “token”, which is an additional “password” that is set up to expire automatically.</p>
+<p>Install the <code>usethis</code> package to create the token, then use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="set-up-git-on-macs" class="slide level2">
-<h2>Set up Git on Macs</h2>
-<div style="font-size: 70%;">
-<ol type="1">
-<li><p>Open terminal</p></li>
-<li><p>Install xcode:</p>
-<p><code>sudo xcode-select --install</code></p></li>
-<li><p>Install homebrew:</p>
-<p><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</code></p></li>
-<li><p>Link to PATH:</p>
-<p><code>echo 'PATH="/usr/local/bin:$PATH"' &gt;&gt; ~/.bash_profile</code></p></li>
-<li><p>Install git:</p>
-<p><code>brew install git</code></p></li>
-<li><p>Install <a href="https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md">git-credential-manager</a>:</p>
-<p><code>brew tap microsoft/git</code></p>
-<p><code>brew install –cask git-credential-manager-core</code></p></li>
-</ol>
-</div>
-</section>
+<section id="set-up-github-1" class="slide level2">
+<h2>Set up GitHub</h2>
+<p>A browser window should open. Log in to GitHub and fill out the form. You can choose the period after which the token expires:</p>
+
+<img data-src="images/Screenshot%202023-10-16%20at%2022.14.18.png" width="577" class="r-stretch"></section>
 <section id="set-up-git" class="slide level2">
 <h2>Set up Git</h2>
-<p>Go to Terminal (Mac) or Comad Line (Windows) and type</p>
+<p>Click on <span style="color:white; background-color: #1E883C;">&nbsp;<strong>Generate Token</strong>&nbsp;</span> and copy the token (a super long cryptic mix of letters and numbers)</p>
+</section>
+<section id="set-up-git-1" class="slide level2">
+<h2>Set up Git</h2>
+<p>Now, use the following command and paste the token when you are asked for a password:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> config <span class="at">--global</span> user.email your.email@domain.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>RStudio should now be able to connect to GitHub</p>
 </section>
 <section id="workflow-2" class="slide level2">
 <h2>Workflow</h2>
@@ -703,12 +688,12 @@ Andreas Eich
 <li><p>For Quarto:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Project"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="at">  </span><span class="fu">gfm</span><span class="kw">:</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="at">    </span><span class="fu">output-file</span><span class="kw">:</span><span class="at"> </span><span class="st">"README.md"</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Project"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="at">  </span><span class="fu">gfm</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="at">    </span><span class="fu">output-file</span><span class="kw">:</span><span class="at"> </span><span class="st">"README.md"</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
