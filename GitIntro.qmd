@@ -290,7 +290,7 @@ You can use [Quarto](https://quarto.org/docs/websites/) (updated RMarkdown) to g
 
 ## Set up Git
 
-Go to Terminal (Mac) or Commsad Line (Windows) and type
+Go to Terminal (Mac) or Command Line (Windows) and type
 
 ```{bash}
 #| eval: false
