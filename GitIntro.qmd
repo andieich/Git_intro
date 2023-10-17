@@ -242,62 +242,45 @@ You can use [Quarto](https://quarto.org/docs/websites/) (updated RMarkdown) to g
 
 ------------------------------------------------------------------------
 
-## Set up Git on Windows
+## Set up GitHub
 
-::: columns
-::: {.column width="50%"}
--   Install from [here](https://git-scm.com/download/win)
+You can set-up RStudio to directly connect to GitHub. In the past, your GitHub username and password was sufficient, but now you need to log in using a "token", which is an additional "password" that is set up to expire automatically.
 
--   Select Git Credential Manager
-:::
+Install the `usethis` package to create the token, then use:
 
-::: {.column width="50%"}
-![](images/Screenshot%202023-09-03%20at%2020.04.56.png)
-:::
-:::
+```{r}
+#| eval: false
+#| echo: true
+usethis::create_github_token()
+```
 
 ------------------------------------------------------------------------
 
-## Set up Git on Macs
+## Set up GitHub
 
-::: {style="font-size: 70%;"}
-1.  Open terminal
+A browser window should open. Log in to GitHub and fill out the form. You can choose the period after which the token expires:
 
-2.  Install xcode:
-
-    `sudo xcode-select --install`
-
-3.  Install homebrew:
-
-    `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)`
-
-4.  Link to PATH:
-
-    `echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile`
-
-5.  Install git:
-
-    `brew install git`
-
-6.  Install [git-credential-manager](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md):
-
-    `brew tap microsoft/git`
-
-    `brew install –cask git-credential-manager-core`
-:::
+![](images/Screenshot%202023-10-16%20at%2022.14.18.png){width="577"}
 
 ------------------------------------------------------------------------
 
 ## Set up Git
 
-Go to Terminal (Mac) or Command Line (Windows) and type
+Click on [ **Generate Token**  ]{style="color:white; background-color: #1E883C;"} and copy the token (a super long cryptic mix of letters and numbers)
 
-```{bash}
+------------------------------------------------------------------------
+
+## Set up Git
+
+Now, use the following command and paste the token when you are asked for a password:
+
+```{r}
 #| eval: false
 #| echo: true
-git config --global user.name "Your Name"
-git config --global user.email your.email@domain.com
+gitcreds::gitcreds_set()
 ```
+
+RStudio should now be able to connect to GitHub
 
 ------------------------------------------------------------------------
 
