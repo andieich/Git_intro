@@ -98,7 +98,7 @@ Folder containing all project files, i.e. the analysis and other files of a pape
 2.  Create scripts and include to git
 3.  Edit scripts
 4.  Create a record of your changes in the version history incl. description
-5.  Synchronise your changes with a remote repository
+5.  Synchronize your changes with a remote repository
 
 **Repeat steps (2) 3 - 5**
 
@@ -228,6 +228,8 @@ GitHub can be used to host your personal [websites](https://andieich.github.io/L
 
 You can use [Quarto](https://quarto.org/docs/websites/) (updated RMarkdown) to generate the needed files
 
+More info [here](https://quarto.org/docs/publishing/github-pages.html#publish-command)
+
 ------------------------------------------------------------------------
 
 ## Notes
@@ -266,7 +268,7 @@ A browser window should open. Log in to GitHub and fill out the form. You can ch
 
 ## Set up Git
 
-Click on [ **Generate Token**  ]{style="color:white; background-color: #1E883C;"} and copy the token (a super long cryptic mix of letters and numbers)
+Click on [ **Generate Token** ]{style="color:white; background-color: #1E883C;"} and copy the token (a super long cryptic mix of letters and numbers)
 
 ------------------------------------------------------------------------
 
